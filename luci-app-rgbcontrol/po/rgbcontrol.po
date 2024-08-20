@@ -1,0 +1,128 @@
+msgid "RGB Control"
+msgstr "灯光控制"
+
+msgid "General RGB Control Settings"
+msgstr "通用灯光控制设置"
+
+msgid "Global Settings"
+msgstr "全局设置"
+
+msgid "Global settings, where the settings control the whole plugin."
+msgstr "全局设置，这里的设置可以一键控制整个插件"
+
+msgid "Enabled"
+msgstr "启用"
+
+msgid "Global setting, LEDs can only be controlled when it is enabled."
+msgstr "全局设置，只有开启这个选项灯光才能被插件控制"
+
+msgid "LEDs Settings"
+msgstr "灯光设置"
+
+msgid "Change the behavior of the LEDs."
+msgstr "更改灯光的行为"
+
+msgid "LEDs Mode"
+msgstr "灯光模式"
+
+msgid "Set leds animation."
+msgstr "设置灯光的动画模式"
+
+msgid "OFF"
+msgstr "关闭"
+
+msgid "Default"
+msgstr "默认"
+
+msgid "Breathing"
+msgstr "呼吸灯"
+
+msgid "Rainbow"
+msgstr "彩虹循环"
+
+msgid "Color"
+msgstr "颜色"
+
+msgid "(Hex)Set leds color by use hex color code."
+msgstr "（16进制）设置16进制颜色值"
+
+msgid "Brightness"
+msgstr "颜色"
+
+msgid "(Percentage)Set leds brightness."
+msgstr "（百分比）设置灯光的亮度"
+
+msgid "Advanced RGB Control Settings"
+msgstr "高级灯光控制设置"
+
+msgid "PWM Chip Settings"
+msgstr "脉冲宽度调制芯片设置"
+
+msgid "Global PWM Chip Settings"
+msgstr "全局脉冲宽度调制芯片设置"
+
+msgid "PWM Chip Path"
+msgstr "灯光脉冲宽度调制芯片路径"
+
+msgid "(Path)Set the path of PWM."
+msgstr "（路径）设置脉冲宽度调制芯片的路径"
+
+msgid "RGB PWM Chip Name"
+msgstr "灯光脉冲宽度调制芯片名称"
+
+msgid "Set the name of the chip where the RGB is located."
+msgstr "设置灯光所在的脉冲宽度调制芯片的名称"
+
+msgid "LEDs PWM Settings"
+msgstr "灯光脉冲宽度调制设置"
+
+msgid "Global LEDs PWM Settings"
+msgstr "全局灯光脉冲宽度调制设置"
+
+msgid "LED PWM Period"
+msgstr "灯光脉冲宽度调制周期"
+
+msgid "Set the period for LEDs"
+msgstr "为灯光设置宽度调制周期"
+
+msgid "Red LED PWM Pin"
+msgstr "红灯脉冲宽度调制针脚名"
+
+msgid "Green LED PWM Pin"
+msgstr "绿灯脉冲宽度调制针脚名"
+
+msgid "Blue LED PWM Pin"
+msgstr "蓝灯脉冲宽度调制针脚名"
+
+msgid "Set the pin name of the Red LED on the PWM chip."
+msgstr "设置红灯在脉冲宽度调制芯片上的针脚名称"
+
+msgid "Set the pin name of the Green LED on the PWM chip."
+msgstr "设置绿灯在脉冲宽度调制芯片上的针脚名称"
+
+msgid "Set the pin name of the Blue LED on the PWM chip."
+msgstr "设置蓝灯在脉冲宽度调制芯片上的针脚名称"
+
+msgid "LEDs Tweak Settings"
+msgstr "灯光校调设置"
+
+msgid "Global LEDs Tweak Settings"
+msgstr "全局灯光校调设置"
+
+msgid "Red LED Tweak"
+msgstr "红色灯光校调"
+
+msgid "Green LED Tweak"
+msgstr "绿色灯光校调"
+
+msgid "Blue LED Tweak"
+msgstr "蓝色灯光校调"
+
+msgid "(Number)Caution! Set the color calibration value for the Red LED."
+msgstr "（数字）小心！设置红灯的校调数据"
+
+msgid "(Number)Caution! Set the color calibration value for the Green LED."
+msgstr "（数字）小心！设置绿灯的校调数据"
+
+msgid "(Number)Caution! Set the color calibration value for the Blue LED."
+msgstr "（数字）小心！设置蓝灯的校调数据"

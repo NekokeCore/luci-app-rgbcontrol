@@ -1,0 +1,33 @@
+#!/bin/sh
+
+. /lib/functions/system.sh
+
+uci -q batch <<-EOF >/dev/null
+	delete ucitrack.@rgbcontrol[-1]
+	add ucitrack rgbcontrol
+	set ucitrack.@rgbcontrol[-1].init=rgbcontrol
+	commit ucitrack
+EOF
+
+case "$(board_name)" in
+xiaomi,be10000)
+	uci set rgbcontrol.settings.enabled='1'
+	uci set rgbcontrol.settings.period='51000'
+	uci set rgbcontrol.settings.leds_mode='default'
+	uci set rgbcontrol.settings.leds_color='00F5FF'
+	uci set rgbcontrol.settings.leds_brightness='100'
+	uci set rgbcontrol.settings.pwm_path='/sys/class/pwm'
+	uci set rgbcontrol.settings.pwm_name='pwmchip0'
+	uci set rgbcontrol.settings.red_pwm_name='pwm3'
+	uci set rgbcontrol.settings.green_pwm_name='pwm2'
+	uci set rgbcontrol.settings.blue_pwm_name='pwm1'
+	uci set rgbcontrol.settings.red_led_tweak='48'
+	uci set rgbcontrol.settings.green_led_tweak='48'
+	uci set rgbcontrol.settings.blue_led_tweak='255'
+	uci commit rgbcontrol
+	;;
+esac
+
+rm -f /tmp/luci-indexcache
+
+exit 0

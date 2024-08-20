@@ -1,0 +1,81 @@
+#!/bin/sh /etc/rc.common
+
+START=99
+STOP=01
+USE_PROCD=1
+
+NAME=rgbcontrol
+PROG=/usr/bin/$NAME
+
+start_service() {
+    config_load "$NAME"
+
+    local enabled
+    config_get enabled settings enabled
+    [ "$enabled" = "1" ] || { _info "Instance \"$NAME\" disabled."; return 1; }
+
+    local period
+    local leds_mode
+    local leds_color
+    local leds_brightness
+    local pwm_path
+    local pwm_name
+    local red_pwm_name
+    local green_pwm_name
+    local blue_pwm_name
+    local red_led_tweak
+    local green_led_tweak
+    local blue_led_tweak
+
+    config_get period settings period
+    config_get leds_mode settings leds_mode
+    config_get leds_color settings leds_color
+    config_get leds_brightness settings leds_brightness
+    config_get pwm_path settings pwm_path
+    config_get pwm_name settings pwm_name
+    config_get red_pwm_name settings red_pwm_name
+    config_get green_pwm_name settings green_pwm_name
+    config_get blue_pwm_name settings blue_pwm_name
+    config_get red_led_tweak settings red_led_tweak
+    config_get green_led_tweak settings green_led_tweak
+    config_get blue_led_tweak settings blue_led_tweak
+
+    procd_open_instance
+
+    [ "$leds_mode" = "off" ] && {
+        procd_set_param command $PROG
+        procd_append_param command -P
+    }
+    
+    procd_set_param command $PROG
+    [ -n "$period" ] && procd_append_param command -p "$period"
+    [ -n "$leds_color" ] && procd_append_param command -c "$leds_color"
+    [ -n "$leds_mode" ] && procd_append_param command -a "$leds_mode"
+    [ -n "$leds_brightness" ] && procd_append_param command --leds_brightness "$leds_brightness"
+    [ -n "$pwm_path" ] && procd_append_param command --pwm_path "$pwm_path"
+    [ -n "$pwm_name" ] && procd_append_param command --pwm_name "$pwm_name"
+    [ -n "$red_pwm_name" ] && procd_append_param command --red_pwm_name "$red_pwm_name"
+    [ -n "$green_pwm_name" ] && procd_append_param command --green_pwm_name "$green_pwm_name"
+    [ -n "$blue_pwm_name" ] && procd_append_param command --blue_pwm_name "$blue_pwm_name"
+    [ -n "$red_led_tweak" ] && procd_append_param command --red_led_tweak "$red_led_tweak"
+    [ -n "$green_led_tweak" ] && procd_append_param command --green_led_tweak "$green_led_tweak"
+    [ -n "$blue_led_tweak" ] && procd_append_param command --blue_led_tweak "$blue_led_tweak"
+    procd_set_param respawn
+    procd_close_instance
+}
+
+start() {
+    start_service
+}
+
+stop() {
+    procd_kill_instance
+}
+
+reload() {
+    procd_reload_instance
+}
+
+service_triggers() {
+    procd_add_reload_trigger "rgbcontrol"
+}
