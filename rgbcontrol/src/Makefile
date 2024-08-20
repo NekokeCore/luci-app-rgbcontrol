@@ -1,42 +1,14 @@
-include $(TOPDIR)/rules.mk
+CC = gcc
+CFLAGS = -Wall
+OBJS = rgbcontrol.o
 
-PKG_NAME:=rgbcontrol
-PKG_VERSION:=1
-PKG_RELEASE:=1
+all: rgbcontrol
 
+%.o: %.c
+	$(CC) $(CFLAGS) -c -o $@ $<
 
-PKG_LICENSE:=MIT
-PKG_LICENSE_FILES:=LICENSE
+rgbcontrol: $(OBJS)
+	$(CC) -o $@ $(OBJS)
 
-PKG_BUILD_PARALLEL:=1
-
-include $(INCLUDE_DIR)/package.mk
-
-define Package/rgbcontrol
-  SECTION:=utils
-  CATEGORY:=Utilities
-  TITLE:=RGB Control for QWRT
-endef
-
-define Package/rgbcontrol/description
-  RGB Control for QWRT.
-endef
-
-define Build/Prepare
-	mkdir -p $(PKG_BUILD_DIR)
-	$(CP) ./src/* $(PKG_BUILD_DIR)
-endef
-
-MAKE_FLAGS += \
-	-C $(PKG_BUILD_DIR)
-
-define Package/rgbcontrol/install
-	$(INSTALL_DIR) $(1)/usr/bin
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/rgbcontrol $(1)/usr/bin/rgbcontrol
-	$(INSTALL_DIR) $(1)/etc/config
-	$(INSTALL_BIN) ./files/rgbcontrol.config $(1)/etc/config/rgbcontrol
-	$(INSTALL_DIR) $(1)/etc/init.d
-	$(INSTALL_BIN) ./files/rgbcontrol.init $(1)/etc/init.d/rgbcontrol
-endef
-
-$(eval $(call BuildPackage,rgbcontrol))
+clean:
+	rm -f rgbcontrol *.o
