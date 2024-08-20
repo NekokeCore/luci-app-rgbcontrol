@@ -50,7 +50,7 @@ msgid "(Hex)Set leds color by use hex color code."
 msgstr "（16进制）设置16进制颜色值"
 
 msgid "Brightness"
-msgstr "颜色"
+msgstr "亮度"
 
 msgid "(Percentage)Set leds brightness."
 msgstr "（百分比）设置灯光的亮度"
