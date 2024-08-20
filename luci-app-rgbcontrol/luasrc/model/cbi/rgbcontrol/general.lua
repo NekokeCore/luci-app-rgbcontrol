@@ -2,6 +2,8 @@ m = Map("rgbcontrol")
 m.title	= translate("RGB Control")
 m.description = translate("General RGB Control Settings")
 
+m:section(SimpleSection).template = "rgbcontrol/rgbcontrol_status"
+
 s = m:section(TypedSection, "rgbcontrol", translate("Global Settings"), translate("Global settings, where the settings control the whole plugin."))
 s.addremove = false
 s.anonymous = true
