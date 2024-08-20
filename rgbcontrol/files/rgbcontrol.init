@@ -12,7 +12,7 @@ start_service() {
 
     local enabled
     config_get enabled settings enabled
-    [ "$enabled" = "1" ] || { _info "Instance \"$NAME\" disabled."; return 1; }
+    [ "$enabled" = "1" ] || return 1
 
     local period
     local leds_mode
