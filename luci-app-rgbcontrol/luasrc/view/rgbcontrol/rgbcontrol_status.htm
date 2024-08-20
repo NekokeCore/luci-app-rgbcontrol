@@ -1,7 +1,7 @@
 <script type="text/javascript">//<![CDATA[
 XHR.poll(3, '<%=url([[admin]], [[system]], [[rgbcontrol]], [[status]])%>', null,
 	function(x, data) {
-		var tb = document.getElementById('rgbcontrol_status');
+		var tb = document.getElementById('status');
 		if (data && tb) {
 			if (data.running) {
 				var str1 = '<em><b><font color=green><%:RGB Control%> <%:RUNNING%></font></b></em>';
@@ -15,7 +15,7 @@ XHR.poll(3, '<%=url([[admin]], [[system]], [[rgbcontrol]], [[status]])%>', null,
 </script>
 <style>.mar-10 {margin-left: 50px; margin-right: 10px;}</style>
 <fieldset class="cbi-section">
-	<p id="rgbcontrol_status">
+	<p id="status">
 		<em><%:Collecting data...%></em>
 	</p>
 </fieldset>
